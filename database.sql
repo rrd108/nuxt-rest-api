@@ -42,7 +42,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `token`) VALUES
-(1, 'rrd@webmania.cc', MD5('rrd'), '270fsdg04%rt2f6$)b4eblok0dfgauranga'),
+(1, 'rrd@webmania.cc', MD5('rrd'), '270fsdg04%rt2f6$)b4eblok0dfgauranga');
 
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
