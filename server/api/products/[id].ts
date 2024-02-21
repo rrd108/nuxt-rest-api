@@ -21,6 +21,6 @@ export default defineEventHandler(async event => {
       // TODO do the same at the other endpoints
       throw createError({ status: 404, message: 'Product not found' })
     }
-    return product
+    return { id }
   }
 })
