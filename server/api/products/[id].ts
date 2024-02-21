@@ -12,4 +12,15 @@ export default defineEventHandler(async event => {
     }
     return product
   }
+
+  if (event.req.method == 'DELETE') {
+    const id = Number(getRouterParam(event, 'id'))
+    try {
+      const product = await prisma.products.delete({ where: { id } })
+    } catch (e) {
+      // TODO do the same at the other endpoints
+      throw createError({ status: 404, message: 'Product not found' })
+    }
+    return product
+  }
 })
