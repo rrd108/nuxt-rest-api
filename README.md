@@ -26,5 +26,4 @@
 
 ## Notes
 
-`const id = getRouterParam(event, 'id')`
 CORS: https://www.youtube.com/watch?v=g6BVCBkRelw&t=849s
