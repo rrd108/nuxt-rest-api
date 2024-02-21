@@ -1,10 +1,10 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-const noAuthRoutes = ['/api/users/login', '/api/products']
+const noAuthRoutes = ['POST:/api/users/login', 'GET:/api/products']
 
 export default defineEventHandler(async event => {
-  if (noAuthRoutes.includes(event.req.url)) {
+  if (noAuthRoutes.includes(`${event.req.method}:${event.req.url}`)) {
     return
   }
 
