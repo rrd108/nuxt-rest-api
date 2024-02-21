@@ -3,7 +3,6 @@ import md5 from 'md5'
 const prisma = new PrismaClient()
 
 export default defineEventHandler(async event => {
-  console.log('event', event)
   if (event.req.method != 'POST') {
     throw createError({ status: 405, message: 'Method not Allowed' })
   }
