@@ -7,6 +7,9 @@ export default defineEventHandler(async event => {
   }
 
   const token = getHeader(event, 'token')
+  if (!token) {
+    throw createError({ status: 401, message: 'Missing authentication header' })
+  }
 
   const user = await prisma.users.findFirst({ where: { token } })
   if (!user) {
