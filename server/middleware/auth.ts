@@ -4,13 +4,13 @@ const prisma = new PrismaClient()
 const noAuthRoutes = ['POST:/api/users/login', 'GET:/api/products']
 
 export default defineEventHandler(async event => {
-  if (noAuthRoutes.includes(`${event.req.method}:${event.req.url}`)) {
+  if (noAuthRoutes.includes(`${event.node.req.method}:${event.node.req.url}`)) {
     return
   }
 
-  const token = getHeader(event, 'token')
+  const token = getHeader(event, 'Token')
   if (!token) {
-    throw createError({ status: 401, message: 'Missing authentication header' })
+    throw createError({ status: 400, message: 'Missing Authentication header' })
   }
 
   const user = await prisma.users.findFirst({ where: { token } })

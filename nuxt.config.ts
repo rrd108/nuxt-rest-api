@@ -5,8 +5,8 @@ export default defineNuxtConfig({
     'api/**': {
       cors: true,
       headers: {
-        'access-control-allow-origin': 'http://localhost:3000',
-        'access-control-allow-headers': ['Origin', 'Token', 'Content-Type'],
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
+        'Access-Control-Allow-Headers': 'Content-Type, Token',
       },
     },
   },
